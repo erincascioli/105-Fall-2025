@@ -23,6 +23,9 @@ namespace StringMethods_Demo
             string middlePartOfPet = petName.Substring(2, 2);               // nd
             string lastOfPet = petName.Substring(petName.Length - 2, 2);    // it
 
+            Console.WriteLine("My name is \"Erin\"");
+
+
             // Special characters (Escape sequences)
             Console.WriteLine("My pet name is \"Bandit\".");
             Console.WriteLine("She said, \"He said, \'OMG\'. Can you believe it?\"");
@@ -31,6 +34,8 @@ namespace StringMethods_Demo
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("1\t2\t3\t4\t5");
             Console.WriteLine("abc\tdef\tghi\tjkl\tmno");
+
+            Console.WriteLine("Users\\\\Documents\\Erin");
         }
     }
 }
