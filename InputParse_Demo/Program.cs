@@ -1,115 +1,73 @@
-﻿namespace InputParse_Demo
+﻿// Erin Cascioli
+// 9/15/25
+// Demo: Input and parsing
+
+namespace InputParse_Demo
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            // Variable declarations and initializations
-            string userName = "Timmy the Timmy XXVII, Bacon Lover 42, John Microsoft";
-            string favoriteFood = "bacon";
-            int birthYear = 0;
-
-            // Dark magenta text for the username
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            // Print output for user
-            Console.WriteLine($"Hi, {userName}!");
-
-            // Green text for the rest of the text in the output
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.BackgroundColor = ConsoleColor.Red;
-
-            // Can separate long lines like either of the statements below:
-            // 1.
-            Console.WriteLine(
-                $"Your birth year is {birthYear} and your favorite food is {favoriteFood}.");
-            // 2. 
-            Console.WriteLine($"Your birth year is {birthYear} and your favorite food" +
-                $" is {favoriteFood}.");
-
-
-
-            // Print "Hi" in magenta!
-            //Console.ForegroundColor = ConsoleColor.Magenta;
-            // Print rest of the output in yellow!
-            //Console.ForegroundColor = ConsoleColor.Yellow;
-
-            /*
-            string userName = "Isaac John Arbuckle III, HRH";
-            string favoriteFood = "string cheese";
-            int birthYear = 1;
-
-            // Print "Hi" in magenta!
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write($"Hi, ");
-
-            // The print the name in green!
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{userName}!");
-
-            // Print rest of the output in yellow!
-            Console.ForegroundColor = ConsoleColor.Yellow;
-
-            // Can separate long lines like either of the statements below:
-            // 1.
-            Console.WriteLine(
-                $"Your birth year is {birthYear} and your favorite food is {favoriteFood}.");
-            // 2. 
-            Console.WriteLine($"Your birth year is {birthYear} and your favorite food" +
-                $" is {favoriteFood}.");
-            */
-
-            /*
             // ----------------------------------------------------------------
-            // NEW DEMO - Erin only
-            // Ask user for information
-            // Perform math on the birth year
-            // Add a new variable for parse type bool, yes or no question
+            // Variable declarations
+            // Expecting any user provided values? Declare variables for each here!
             // ----------------------------------------------------------------
             string userName;
             string favoriteFood;
             string birthYearString;
             int birthYearInt;
-            string likeCatsString;
-            bool likeCatsBool;
+            bool canFly;
+            string canFlyString;
 
-            Console.Write("Hi! Please enter your name: ");
-            userName = Console.ReadLine();
 
-            Console.Write("Please enter your favorite food: ");
-            favoriteFood = Console.ReadLine();
-
-            Console.Write("What year were you born? ");
-            birthYearString = Console.ReadLine();
-
-            // PARSE the string to an integer
-            birthYearInt = int.Parse(birthYearString);
-
-            Console.Write("Do you like cats? Type 'true' or 'false': ");
-            likeCatsString = Console.ReadLine();
-
-            // PARSE the string to an integer
-           likeCatsBool= bool.Parse(likeCatsString);
-
-            Console.WriteLine("-------------------------------------------------");
+            // ----------------------------------------------------------------
+            // Prompt the user for all data!  
+            // Give explicit prompts for each data you expect.
+            // Parse data to any necessary types other than string.
+            // ----------------------------------------------------------------
             
-            // Print "Hi" in magenta!
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write($"Hi, ");
+            // ** Name is used as a string, no parsing needed.
+            // ** Trim removes any leading or trailing spaces.
+            // ** The ! removes warnings for a non-nullable type
+            Console.Write("Enter your name: ");
+            userName = Console.ReadLine()!.Trim();
 
-            // The print the name in green!
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{userName}!");
+            // Food is used as a string, no parsing needed.
+            Console.Write("Enter your favorite food: ");
+            favoriteFood = Console.ReadLine()!;
 
-            // Print rest of the output in yellow!
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            // Year must be parsed into an integer for calculations later in the program
+            Console.Write("Enter your birth year: ");
+            birthYearString = Console.ReadLine()!;
+            birthYearInt = int.Parse(birthYearString);
+            
+            // Flying must be parsed to a bool
+            Console.Write("Can you fly? Enter 'true' or 'false': ");
+            canFlyString = Console.ReadLine()!;
+            canFly = bool.Parse(canFlyString);
+
+            
+            // ----------------------------------------------------------------
+            // Changing color with Console.ForegroundColor and ConsoleColor
+            // ----------------------------------------------------------------
+            // Dark magenta text for the username
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+
+
+            // ----------------------------------------------------------------
+            // Print output after information has been retrieved
+            // ----------------------------------------------------------------
+            // Print output for user
+            Console.WriteLine($"Hi, {userName}!");
+
+            // Green text with white background for the rest of the text in the output
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.White;
+
             Console.WriteLine(
-                $"Your birth year is {birthYearInt} and your favorite food is {favoriteFood}.");
-
-            // Calculate the user's age
-            Console.WriteLine($"Your age is {(2025 - birthYearInt)}");
-
-            Console.WriteLine($"Do you like cats? {likeCatsBool}");
-            */
+                $"Your birth year is {birthYearString} and your favorite food is {favoriteFood}.");
+            Console.WriteLine($"Your age is {(2025 - birthYearInt)}.");
+            Console.WriteLine($"True or false? You can fly. {canFly}");
         }
     }
 }
