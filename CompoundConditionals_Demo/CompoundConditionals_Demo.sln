@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompoundConditionals_Demo", "CompoundConditionals_Demo.csproj", "{BE8C8538-7034-4A5C-AAD3-F3F4CC3CA228}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE8C8538-7034-4A5C-AAD3-F3F4CC3CA228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8C8538-7034-4A5C-AAD3-F3F4CC3CA228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8C8538-7034-4A5C-AAD3-F3F4CC3CA228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8C8538-7034-4A5C-AAD3-F3F4CC3CA228}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A46306E-303B-48AD-9934-F958D0E8D6AE}
+	EndGlobalSection
+EndGlobal
