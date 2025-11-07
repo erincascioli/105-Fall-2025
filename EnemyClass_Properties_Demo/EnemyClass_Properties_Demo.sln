@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnemyClass_Properties_Demo", "EnemyClass_Properties_Demo.csproj", "{127E2B13-C9C3-411E-A2D5-BC5DA4F6D99B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{127E2B13-C9C3-411E-A2D5-BC5DA4F6D99B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127E2B13-C9C3-411E-A2D5-BC5DA4F6D99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127E2B13-C9C3-411E-A2D5-BC5DA4F6D99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127E2B13-C9C3-411E-A2D5-BC5DA4F6D99B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7779F77-91DC-44B5-A46F-7F9E9E806497}
+	EndGlobalSection
+EndGlobal
