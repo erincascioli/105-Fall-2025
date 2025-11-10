@@ -81,12 +81,12 @@ namespace Library_MultipleObjectArrayDemo
             {
                 // Wait...  I can't do this because title is private...
                 // Check is the title matches this method's parameter
-                /*
-                if (titleFromParam == myBooks[i].title)
+                
+                if (titleFromParam == myBooks[i].Title)
                 {
                     inLibrary = true;
                 }
-                */
+                
             }
 
             // Return the result.

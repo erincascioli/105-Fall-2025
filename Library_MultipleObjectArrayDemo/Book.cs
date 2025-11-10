@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,12 @@ namespace Library_MultipleObjectArrayDemo
         private int numberPages;
         private int bookmarkedPage;
         private int readThrough;
+
+        // Read-only property
+        public string Title
+        {
+            get{ return title; }
+        }
 
         /// <summary>
         /// Constructs a brand-new book that has never been read.
