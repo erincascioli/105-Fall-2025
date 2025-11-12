@@ -35,8 +35,10 @@ namespace Inheritance_Demo
             // The parent class is ALREADY doing that!
 
             // What do I need to do then?  Only focus on data unique to this class!
-            // Assign values to the unique data of the class
+            // Assign values to the
+            // unique data of the class
             uniqueWord = "Lollipop";
+            parentOrChild = "child";
             Console.WriteLine("I am in the CHILD constructor!");
         }
 
@@ -57,6 +59,7 @@ namespace Inheritance_Demo
             // What do I need to do then?  Only focus on data unique to this class!
             // Assign values to the unique data of the class
             this.uniqueWord = word;
+            parentOrChild = "child";
         }
 
         // --------------------------------------------------------------------
@@ -66,15 +69,33 @@ namespace Inheritance_Demo
 
         /// <summary>
         /// Prints information about this Child class, including values for all fields of the class.
+        /// Child class OVERRIDES the parent class's PRINT method.
         /// </summary>
-        public void PrintChild()
+        public override void Print()
         {
             // Since child classes have access to all parent methods, they can call those methods
             //   anytime it would be beneficial to not replicate the work in this child.
-            // i.e. The PrintParent method ALREADY prints out the type, price, and array - 
+            // i.e. The Print method ALREADY prints out the type, price, and array - 
             //   so why copy/paste that code again in this class? Just call the method!
-            base.PrintParent();
+            base.Print();
             Console.WriteLine(uniqueWord);
+        }
+
+        /// <summary>
+        /// Provides a string representation of this class.
+        /// </summary>
+        /// <returns>String representation of the Child</returns>
+        public override string ToString()
+        {
+            return base.ToString() + " unique info: " + uniqueWord;
+        }
+
+        /// <summary>
+        /// Method specific to a child class, is unique to this class.
+        /// </summary>
+        public void UniqueMethod()
+        {
+            Console.WriteLine("UNIQUE!");
         }
     }
 }

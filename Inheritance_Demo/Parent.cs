@@ -15,9 +15,11 @@ namespace Inheritance_Demo
         // Fields are shared with ALL children
         // --------------------------------------------------------------------
 
-        public string type;
-        public double price;
-        public bool[] lieDetector;
+        protected string type;
+        protected double price;
+        protected bool[] lieDetector;
+
+        protected string parentOrChild;
 
         // --------------------------------------------------------------------
         // The Parent class constructor will always run first
@@ -34,6 +36,8 @@ namespace Inheritance_Demo
             lieDetector = new bool[2];
             lieDetector[0] = true;
             lieDetector[1] = false;
+
+            parentOrChild = "parent";
 
             // Printing JUST to see which constructor runs first in the demo. :)
             Console.WriteLine("I am in the PARENT constructor!");
@@ -54,16 +58,19 @@ namespace Inheritance_Demo
             lieDetector = new bool[2];
             lieDetector[0] = true;
             lieDetector[1] = false;
+
+            parentOrChild = "parent";
         }
 
         // --------------------------------------------------------------------
-        // All of the parent class methods are shared with ALL children
+        // VIRTUAL METHOD(S)
         // --------------------------------------------------------------------
         
         /// <summary>
         /// Prints information about all 3 fields of the class: type, price, and lie detector.
+        /// Virtual --> Child classes can override if they want.
         /// </summary>
-        public void PrintParent()
+        public virtual void Print()
         {
             Console.WriteLine(type);
             Console.WriteLine($"{price:C2}");
@@ -72,6 +79,13 @@ namespace Inheritance_Demo
             {
                 Console.WriteLine(element);
             }
+        }
+
+        public override string ToString()
+        {
+            // NOT FOR PRINTING
+
+            return "This object type is " + type + " and it costs $" + price;
         }
     }
 }
