@@ -8,6 +8,9 @@ namespace AnimalPolymorphism_Demo
 {
     internal class Dog : Pet
     {
+        // ----------------------------------------------------------------
+        // Constructor calls base class
+        // ----------------------------------------------------------------
         /// <summary>
         /// Paramaterized constructor of this class
         /// </summary>
@@ -20,6 +23,7 @@ namespace AnimalPolymorphism_Demo
             // Nothing else needs to occur!
         }
 
+
         // ----------------------------------------------------------------
         // Unique methods to this Dog class
         // ----------------------------------------------------------------
@@ -27,10 +31,15 @@ namespace AnimalPolymorphism_Demo
         /// <summary>
         /// Representing a dog barking
         /// </summary>
-        public void Bark()
+        public override void MakeSound()
         {
             Console.WriteLine("This dog barks.");
         }
+
+
+        // ----------------------------------------------------------------
+        // Overriding parent methods
+        // ----------------------------------------------------------------
 
         /// <summary>
         /// Overridden from parent, prints information about this class.

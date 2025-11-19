@@ -12,19 +12,20 @@ namespace AnimalPolymorphism_Demo
         // ----------------------------------------------------------------
         // Unique fields of this class
         // ----------------------------------------------------------------
-
         private int rudeness;
 
 
         // ----------------------------------------------------------------
         // Unique properties of this class
         // ----------------------------------------------------------------
-
         public int Rudeness
         {
             get { return rudeness; }
         }
 
+        // ----------------------------------------------------------------
+        // Constructor calls base class
+        // ----------------------------------------------------------------
         /// <summary>
         /// Parameterized constructor
         /// </summary>
@@ -37,13 +38,23 @@ namespace AnimalPolymorphism_Demo
             rudeness = rude;
         }
 
+
+        // ----------------------------------------------------------------
+        // Unique methods to this Dog class
+        // ----------------------------------------------------------------
+
         /// <summary>
         /// Unique method to the Cat class, representing a cat meowing.
         /// </summary>
-        public void Meow()
+        public override void MakeSound()
         {
             Console.WriteLine("This cat meows.");
         }
+
+
+        // ----------------------------------------------------------------
+        // Overriding parent methods
+        // ----------------------------------------------------------------
 
         /// <summary>
         /// Overridden from the Pet class, prints information about this Cat object.

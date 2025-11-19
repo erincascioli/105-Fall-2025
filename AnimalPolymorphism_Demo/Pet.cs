@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace AnimalPolymorphism_Demo
 {
-    internal class Pet
+    internal abstract class Pet
     {
-        // Data (field): Name, Hair length, age, owner, tail/no tail, weight
+        // ----------------------------------------------------------------
+        // Fields shared to all children
+        // ----------------------------------------------------------------
         protected string name;
         protected int age;
 
+
+        // ----------------------------------------------------------------
+        // Constructor - must be called by a child class
+        // ----------------------------------------------------------------
         /// <summary>
         /// Parameterized constructor of the Pet class
         /// </summary>
@@ -23,6 +29,10 @@ namespace AnimalPolymorphism_Demo
             this.age = age;
         }
 
+        // ----------------------------------------------------------------
+        // Virtual methods
+        // ----------------------------------------------------------------
+
         /// <summary>
         /// Child classes can choose to override this method if they desire.
         /// </summary>
@@ -32,6 +42,11 @@ namespace AnimalPolymorphism_Demo
             Console.WriteLine($"They are {age} years old.");
         }
 
+
+        // ----------------------------------------------------------------
+        // Overriding methods from parent (Object) class
+        // ----------------------------------------------------------------
+
         /// <summary>
         /// Overridden from the Object class
         /// </summary>
@@ -39,6 +54,13 @@ namespace AnimalPolymorphism_Demo
         public override string ToString()
         {
             return "This pet's name is " + name + " and is " + age + " years old.";
-        }        
+        }    
+        
+        public static void PrintPet()
+        {
+            Console.WriteLine("Hi! I am a pet!");
+        }
+
+        public abstract void MakeSound();
     }
 }
