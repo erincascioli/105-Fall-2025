@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+// ------------------------------------------------------------------------
+// Erin Cascioli
+// 12/1/25
 // Demo: Simple Exceptions and Exception Handling Demo
 // Exceptions are thrown by calling intentionally broken code
 //   and handled with try/catch blocks.  
+// ------------------------------------------------------------------------
+
 
 namespace Sec3_ExceptionDemo
 {
@@ -14,21 +16,38 @@ namespace Sec3_ExceptionDemo
     {
         static void Main(string[] args)
         {
-            // ------------------------- TRY/CATCH Blocks -----------------------------
-            // Use try/catch blocks only where necessary
-            // Anytime you can error-check with conditionals, tryparse, etc. DO SO!!!
-            // Exceptions are SLOW to create/throw/catch
-            //   and should only be used in situations where you cannot predict/prevent
-            //   an error by using simple conditionals, checking for null, etc.  
+            // ---------------------- Error Handling Basics --------------------------
+            //
+            // *** WHAT is an exception? ***
             // An exception means "I simply cannot go on!" (pause for dramatic effect)
             //   "and I must stop noooow"
+            // Exceptions are objects, and the process of throwing one means that an
+            //   object of an Exception class was initialized.  
+            // Exceptions are COMMUNICATION between parts of your code. 
+            //   One part of your code communicates with another part that a task
+            //   cannot be accomplished.
+            //
+            // *** WHEN should I handle exceptions? ***
+            // Use try/catch blocks only when necessary!
+            // Anytime you can error-check with conditionals, TryParse, etc. DO SO!!!
+            // Exceptions are SLOW to create/throw/catch.  Reserve catching exceptions
+            //   for situations where you cannot predict/prevent an error by using 
+            //   conditionals, checking for null, etc.  
+            //
+            // *** WHY should I handle exceptions? ***
+            // Prevent a crash!
+            // Run alternate code instead of crashing and allow the program to continue.
+            //
             // ------------------------------------------------------------------------
+
 
             // --------------------- Exception Handling Speed -------------------------
             // Creating an exception, then catching it, then handling it is a slow process.  
             // Demo of how slow exceptions can be versus checking valid values
-            //    with an if statement (a simple conditional is always the best option)
-            /*
+            //    with an if statement (a simple conditional is the best option)
+            // ------------------------------------------------------------------------
+
+            // *** PREVENTING EXCEPTIONS FROM OCCURRING ***
             // Super quick!  Almost instantaneous!
             int totalValidDivisions = 0;
             int totalThrownExceptions = 0;
@@ -38,7 +57,7 @@ namespace Sec3_ExceptionDemo
                 int divisor = 0;
 
                 // Only divide if the divisor is not 0.
-                // Preventing a crash! 
+                // This is an example of PREVENTING a crash from occurring! 
                 if (divisor != 0)
                 {
                     int number = 5 / divisor;
@@ -46,72 +65,77 @@ namespace Sec3_ExceptionDemo
                 }
             }
 
-            // Print out a total to see the elapsed time error handling with a conditional 
+            // Print total to see the elapsed time error handling with a conditional 
             Console.WriteLine("How many divisions were ok? " + totalValidDivisions);
 
-
-            // SLOW!  
-            // Took a while to create 10,000 exceptions, throw them, and handle them
+            // *** CATCHING THROWN EXCEPTIONS ***
+            // SLOW! Takes a while to create 1,000 exceptions, throw them, and handle them!
             for (int i = 0; i < 10000; i++)
             {
                 try
                 {
-                    // Always divides by 0
+                    // Always divide by 0, no matter what.
                     int divisor = 0;
-                    // An exception is thrown 
-                    int number = 5 / divisor;
+                    int number = 5 / divisor;       // <-- EXCEPTION THROWN HERE!
                     totalValidDivisions++;
                 }
-                // And that exception is caught
+                // CATCH THAT THROWN EXCEPTION!
                 catch(Exception e)
                 {
                     totalThrownExceptions++;
 
-                    // DON'T print the error message!  
+                    // FYI: DON'T print an error message!  
                     // This will clutter up the Console with 10,000 statements
                 }
             }
-            
-            // ------------------------------------------------------------------------
 
             // Print out totals to see the elapsed time when creating exceptions 
             Console.WriteLine("How many divisions were ok? " + totalValidDivisions);
             Console.WriteLine("How many exceptions were thrown? " + totalThrownExceptions);
-            */
+
 
             // ------------------------- TRY/CATCH Blocks -----------------------------
-            // Try/Catch blocks can handle exceptions when they occur
+            // Try/Catch blocks handle exceptions when they occur.
+            // They allow alternate code to run rather than crashing a program.
+            // Only one try allowed, but multiple catch blocks can be used for
+            //   multiple Exception types.
+            // ------------------------------------------------------------------------
+
+            // Run code in here.  If no exceptions are thrown, the program will skip
+            //   over all catch blocks.
             try
             {
-                // It would be much better to check that the index is valid before
-                //   automatically placing this in a try/catch, but it's here
-                //   to demonstrate how to catch exceptions
+                // Optimally, check that the index is valid before reverting to 
+                //   placing this in a try/catch, but it's here to demonstrate
+                //   how to catch exceptions. :)
                 List<int> numbers = new List<int>{ 1, 2, 3 };
                 int index = -3;
-                Console.WriteLine(numbers[index]);      // WILL THROW AN EXCEPTION
+                Console.WriteLine(numbers[index]);      // <-- EXCEPTION THROWN HERE!
 
-                // Since line 89 will throw an exception, lines 94 - 96 will actually never run. 
-                // As above, would be far better to check that the divisor is not 0
-                //   rather than placing it in a try/catch... BUT we're learning the syntax for exceptions
-                //   and how they work rather than being completely efficient at the moment...
+                // Since line 113 will throw an exception, lines 120 - 122 will actually never run. 
+                // As stated previously, is far better to check that the divisor is not 0
+                //   rather than placing it in a try/catch...
+                //   BUT we're learning exception handling syntax and how it all works
+                //   rather than being optimal at the moment...
                 Console.WriteLine("HI");
                 int zero = 0;
                 int number = 5 / zero;
             }
-            // Catch specific exceptions first.
-            // error is now a reference to the Exception object that C# created 
-            // We have access to all of its properties/methods
+            // Catch specific exceptions first!
+            // The locally-scoped variable 'error' contains a reference to the Exception object
+            //   that C# created when line 105 threw a new Exception.  
+            // We have access to all of error's properties/methods!
             catch(IndexOutOfRangeException error)
             {
                 // Message is one useful property that describes what the error is
                 Console.WriteLine("Out of range " + error.Message);
 
-                // Can also use a stack trace to see the line of offending code
+                // Can use a stack trace to see the line of offending code
                 Console.WriteLine("Stack trace " + error.StackTrace);
 
-                // These messages are helpful for the DEVELOPER and not the user
+                // These messages are helpful for the DEVELOPER and not the user!
                 // Error messages printed in a catch block are typically for debugging
-                //   for a developer, and not for a user to do anything differently. 
+                //   for a developer, not for a user to do anything differently. 
             }
             catch (ArgumentOutOfRangeException error)
             {
@@ -130,7 +154,7 @@ namespace Sec3_ExceptionDemo
                 // Again, this message is helpful for the DEVELOPER and not the user
                 Console.WriteLine("Divide by zero " + error.Message);
             }
-            // And catch generic exceptions last
+            // Catch generic exceptions last!
             catch (Exception error)
             {
                 Console.WriteLine("General " + error.Message);
@@ -138,9 +162,6 @@ namespace Sec3_ExceptionDemo
 
             // Code after all of the try/catches will execute.  
             Console.WriteLine("This will print if the program did not crash");
-
-
-            Console.ReadLine();
         }    
     }
 }
